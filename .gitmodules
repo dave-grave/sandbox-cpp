@@ -1,0 +1,3 @@
+[submodule "cmake-lab"]
+	path = cmake-lab
+	url = git@github.com:eecs498w26/cmake-lab.git
