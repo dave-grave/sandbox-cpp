@@ -46,7 +46,9 @@ int main()
     hints.ai_protocol = IPPROTO_TCP;
 
     // getaddrinfo() call
-    int getAddrResult = getaddrinfo("www.nytimes.com", "80", &hints, &address);
+    // apparently neverssl.com and nytimes.com have the same CDN or smth so we
+    // can use both URLs and still be able to receive a successful GET response.
+    int getAddrResult = getaddrinfo("neverssl.com", "80", &hints, &address);
     PrintAddress((sockaddr_in *)address->ai_addr, sizeof(struct sockaddr_in));
 
     // connect the HTTP address to the socket.
