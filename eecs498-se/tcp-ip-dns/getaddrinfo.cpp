@@ -144,7 +144,6 @@ int main()
     {
         // Use write() for HTTP, SSL_write() for HTTPS.
         write(1, buffer, bytes); // for HTTP
-        // SSL_write(ssl, buffer, bytes);
     }
 
     // Free up SSL and socket resources
