@@ -1,8 +1,10 @@
 build:
-	g++ -o getaddrinfo getaddrinfo.cpp
+	mkdir -p output
+	g++ -o output/getaddrinfo getaddrinfo.cpp
 
 debug:
-	g++ -g -o getaddrinfo getaddrinfo.cpp
+	mkdir -p output
+	g++ -g -o output/getaddrinfo getaddrinfo.cpp
 
 clean: 
-	rm getaddrinfo
+	rm output/getaddrinfo
