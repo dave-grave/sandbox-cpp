@@ -49,9 +49,7 @@ int main()
     int getAddrResult = getaddrinfo("www.nytimes.com", "80", &hints, &address);
     PrintAddress((sockaddr_in *)address->ai_addr, sizeof(struct sockaddr_in));
 
-    // do something with the HTTP address.
-    // I don't do anything here since this is an example but in the real code
-    // you would take the address result and pass that into getMessage.
+    // connect the HTTP address to the socket.
     int s = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     assert(s != -1);
 
