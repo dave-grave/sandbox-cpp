@@ -6,13 +6,14 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-
+    // Usage notes
     if (--argc == 0)
     {
         cerr << "Usage: LinuxForkExec command args" << endl;
         return 1;
     }
 
+    // Fork the current process
     pid_t processId = fork();
 
     if (processId)
