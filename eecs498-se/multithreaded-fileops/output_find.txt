@@ -1,0 +1,15 @@
+Documents//
+Documents//Html
+Documents//Html/NYTimes.html
+Documents//Tests
+Documents//Tests/Shakespeare.correct.txt
+Documents//Tests/TraverseDocuments.correct.txt
+Documents//Tests/TraverseTextHtmlDocuments.correct.txt
+Documents//Tests/TraverseUsage.correct.txt
+Documents//Tests/WordCountUsage.correct.txt
+Documents//Text
+Documents//Text/Lincoln
+Documents//Text/Lincoln/GettysburgAddress.txt
+Documents//Text/Shakespeare
+Documents//Text/Shakespeare/Hamlet.txt
+Documents//Text/Shakespeare/Macbeth.txt

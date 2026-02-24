@@ -1,0 +1,2 @@
+Documents/Text/Shakespeare/Hamlet.txt
+Documents/Text/Shakespeare/Macbeth.txt
