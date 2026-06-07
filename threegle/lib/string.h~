@@ -12,8 +12,10 @@
 
 #include <cstddef>   // for size_t
 #include <iostream>  // for ostream
-#include <string.h>  // for memcpy, strlen 
-#include <stdlib.h>  // for malloc
+#include <cstring>   // for memcpy, strlen 
+#include <cstdlib>   // for malloc
+
+namespace thg {
 
 class string
    {
@@ -45,7 +47,7 @@ class string
 				// heap allocation 
 				
 			 size_ = strlen(cstr);
-			 cstr_ = malloc(size_ + 1);
+			 cstr_ = (char*) malloc(size_ + 1);
 			 if (cstr_ == NULL) 
 			 {
 				 // TODO: call custom exception
@@ -56,9 +58,9 @@ class string
          }
 		
 	  ~string( )
-	  {
-		  free(cstr_);
-	  }
+		  {
+			  free(cstr_);
+		  }
 
       // Size
       // REQUIRES: Nothing
@@ -100,92 +102,104 @@ class string
       // REQUIRES: 0 <= i < size()
       // MODIFIES: Allows modification of the i'th element
       // EFFECTS: Returns the i'th character of the string
-      char &operator [ ]( size_t i )
-         {
-         }
-
-      // string Append
-      // REQUIRES: Nothing
-      // MODIFIES: *this
-      // EFFECTS: Appends the contents of other to *this, resizing any
-      //      memory at most once
-      void operator+=( const string &other )
-         {
-         }
-
-      // Push Back
-      // REQUIRES: Nothing
-      // MODIFIES: *this
-      // EFFECTS: Appends c to the string
-      void pushBack( char c )
-         {
-         }
-
-      // Pop Back
-      // REQUIRES: string is not empty
-      // MODIFIES: *this
-      // EFFECTS: Removes the last charater of the string
-      void popBack( )
-         {
-         }
-
-      // Equality Operator
-      // REQUIRES: Nothing
-      // MODIFIES: Nothing
-      // EFFECTS: Returns whether all the contents of *this
-      //    and other are equal
-      bool operator==( const string &other ) const
-         {
-         }
-
-      // Not-Equality Operator
-      // REQUIRES: Nothing
-      // MODIFIES: Nothing
-      // EFFECTS: Returns whether at least one character differs between
-      //    *this and other
-      bool operator!=( const string &other ) const
-         {
-         }
-
-      // Less Than Operator
-      // REQUIRES: Nothing
-      // MODIFIES: Nothing
-      // EFFECTS: Returns whether *this is lexigraphically less than other
-      bool operator<( const string &other ) const
-         {
-         }
-
-      // Greater Than Operator
-      // REQUIRES: Nothing
-      // MODIFIES: Nothing
-      // EFFECTS: Returns whether *this is lexigraphically greater than other
-      bool operator>( const string &other ) const
-         {
-         }
-
-      // Less Than Or Equal Operator
-      // REQUIRES: Nothing
-      // MODIFIES: Nothing
-      // EFFECTS: Returns whether *this is lexigraphically less or equal to other
-      bool operator<=( const string &other ) const
-         {
-         }
-
-      // Greater Than Or Equal Operator
-      // REQUIRES: Nothing
-      // MODIFIES: Nothing
-      // EFFECTS: Returns whether *this is lexigraphically less or equal to other
-      bool operator>=( const string &other ) const
-         {
-         }
+//      char &operator [ ]( size_t i )
+//         {
+//         }
+//
+//      // string Append
+//      // REQUIRES: Nothing
+//      // MODIFIES: *this
+//      // EFFECTS: Appends the contents of other to *this, resizing any
+//      //      memory at most once
+//      void operator+=( const string &other )
+//         {
+//         }
+//
+//      // Push Back
+//      // REQUIRES: Nothing
+//      // MODIFIES: *this
+//      // EFFECTS: Appends c to the string
+//      void pushBack( char c )
+//         {
+//			 c++;
+//			 return;
+//         }
+//
+//      // Pop Back
+//      // REQUIRES: string is not empty
+//      // MODIFIES: *this
+//      // EFFECTS: Removes the last charater of the string
+//      void popBack( )
+//         {
+//			 return;
+//         }
+//
+//      // Equality Operator
+//      // REQUIRES: Nothing
+//      // MODIFIES: Nothing
+//      // EFFECTS: Returns whether all the contents of *this
+//      //    and other are equal
+//      bool operator==( const string &other ) const
+//         {
+//			 return false;
+//         }
+//
+//      // Not-Equality Operator
+//      // REQUIRES: Nothing
+//      // MODIFIES: Nothing
+//      // EFFECTS: Returns whether at least one character differs between
+//      //    *this and other
+//      bool operator!=( const string &other ) const
+//         {
+//			 return false;
+//         }
+//
+//      // Less Than Operator
+//      // REQUIRES: Nothing
+//      // MODIFIES: Nothing
+//      // EFFECTS: Returns whether *this is lexigraphically less than other
+//      bool operator<( const string &other ) const
+//         {
+//			 return false;
+//         }
+//
+//      // Greater Than Operator
+//      // REQUIRES: Nothing
+//      // MODIFIES: Nothing
+//      // EFFECTS: Returns whether *this is lexigraphically greater than other
+//      bool operator>( const string &other ) const
+//         {
+//			 return false;
+//         }
+//
+//      // Less Than Or Equal Operator
+//      // REQUIRES: Nothing
+//      // MODIFIES: Nothing
+//      // EFFECTS: Returns whether *this is lexigraphically less or equal to other
+//      bool operator<=( const string &other ) const
+//         {
+//			 return false;
+//         }
+//
+//      // Greater Than Or Equal Operator
+//      // REQUIRES: Nothing
+//      // MODIFIES: Nothing
+//      // EFFECTS: Returns whether *this is lexigraphically less or equal to other
+//      bool operator>=( const string &other ) const
+//         {
+//			 return false;
+//         }
 
    private:
-		const char* cstr_; 		// heap-allocated string
-		const char* sso_; 		// short string optimization on stack
+		char* cstr_; 		// heap-allocated string
+		char* sso_; 		// short string optimization on stack
 		size_t size_;
 		size_t capacity_;
    };
+}
 
 std::ostream &operator<<( std::ostream &os, const string &s )
    {
+	   os << s.cstr();
+	   return os;
    }

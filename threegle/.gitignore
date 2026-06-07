@@ -2,3 +2,27 @@
 .git
 
 build
+build.log
+
+# Vim Swap Files
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Vim Backup Files
+*~
+*.un~
+
+# Vim Sessions and Views
+Session.vim
+Sessionx.vim
+*.vba
+
+# Netrw History
+.netrwhist
+
+# Auto-generated Tags
+tags
+
