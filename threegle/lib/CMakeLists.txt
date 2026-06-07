@@ -3,12 +3,12 @@
 add_library(thg_core INTERFACE)
 
 target_sources(thg_core
-	PUBLIC 
+	INTERFACE 
 		FILE_SET thg_headers
 		TYPE HEADERS
 		BASE_DIRS ${PROJECT_SOURCE_DIR}
 		FILES 
-			${PROJECT_SOURCE_DIR}/lib/string.h
+			string.h
 )
 
 # include testing subdirectory

@@ -14,5 +14,5 @@ target_link_libraries(
 		thg_core
 )
 
-# include(GoogleTest)
-# gtest_discover_tests(thg_lib_tests)
+include(GoogleTest)
+gtest_discover_tests(thg_lib_tests)
