@@ -44,3 +44,7 @@ output
 _deps
 build
 .vscode
+
+# vim temp files
+*.un~
+*.swp
