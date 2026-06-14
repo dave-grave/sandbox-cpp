@@ -94,20 +94,3 @@ vector<int> submatrix_pattern_sol( vector<vector<char>> &submatrix, vector<vecto
 	return {-1, -1}; 
 }
 
-int main( )
-{
-	vector<vector<int>> b1 = {
-		{1, 2, 3},
-		{4, 5, 6},
-		{7, 8, 9}
-	};
-	vector<vector<char>> s1 = {
-		{'a', 'b'},
-		{'c', 'd'}
-	};
-
-	vector<int> res = submatrix_pattern_sol(s1, b1); 
-	cout << res[0] << ", " << res[1] << '\n';
-	return 0;
-}
-
