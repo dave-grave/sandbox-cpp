@@ -14,6 +14,22 @@
 //
 // if there are no previously created boxes, a 1-operation should be true. (vacuously true statement lol)
 
+// sol:
+// we keep a normalized, monotonically increasing list of ordered pairs corresponding to the (x,y) sizes.
+// - the pairs are normalized based off of the pattern: (min, max)
+// - the list of pairs is ordered from the minimum, or first, element
+//
+// the list invariant is an ordered map for O(nlogn) total insertion of all the operations.
+// on every box insertion operation, we check if the box covers any of the previous boxes. 
+// 
+// if we find any smaller boxes then we prune those accordingly to maintain the invariant that
+// each box is the largest box for a given x-width that can't be covered by any of the previous boxes.
+//
+// this simplifies queries to be O(1) as well since we can use lower_bound to find the smallest box 
+// that could possibly fit the query package.
+//
+// time complexity: O(nlogn), space complexity: O(n)
+
 #include <map>
 #include <iostream>
 #include <vector>
